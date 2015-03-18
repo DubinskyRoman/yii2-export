@@ -1,0 +1,21 @@
+{
+    "name": "rmd/yii2-export",
+    "description": "Export for view - source pure html",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "Dubinsky.Roman ",
+            "email": "Dubinsky.rm@mail.givc.ukrenergo.ent"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "rmd\\export\\": ""
+        }
+    }
+}
