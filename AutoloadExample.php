@@ -20,7 +20,7 @@ class AutoloadExample extends \yii\base\Widget
     }
 	
 	public function makeExcel(){
-				// Create new PHPExcel object
+				 // Create new PHPExcel object
 				echo date('H:i:s') . " Create new PHPExcel object\n";
 				$objPHPExcel = new PHPExcel();
 
