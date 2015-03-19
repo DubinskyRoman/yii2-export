@@ -31,8 +31,9 @@ public $message;
 
     public function run()
     {
-        $this->makeExcel();
-		return "Hello!";
+        //$this->makeExcel();
+		//return "Hello!";
+		$this->render("index");
 		
     }
 	
