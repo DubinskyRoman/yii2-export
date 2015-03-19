@@ -12,7 +12,8 @@
     ],
     "require": {
         "yiisoft/yii2": "*",
-		"phpoffice/phpexcel": "1.8.0"
+		"phpoffice/phpexcel": "1.8.0",
+		"kartik-v/yii2-mpdf": "*"
     },
     "autoload": {
         "psr-4": {
