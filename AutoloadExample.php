@@ -15,7 +15,7 @@ use \PHPExcel_Writer_Excel2007;
  
  
  
-class AutoloadExample extends \yii\base\Widget
+class MultyExportButton extends \yii\base\Widget
 {
 public $message;
 
@@ -31,18 +31,18 @@ public $message;
 
     public function run()
     {
-        //$this->makeExcel();
-		return $this->render("index");
+        return $this->makeExcel();
+		///return $this->render("index");
 		
     }
 	
 	public function makeExcel(){
 				 // Create new PHPExcel object
-				echo date('H:i:s') . " Create new PHPExcel object\n";
+				//echo date('H:i:s') . " Create new PHPExcel object\n";
 				$objPHPExcel = new PHPExcel();
 
 				// Set properties
-				echo date('H:i:s') . " Set properties\n";
+				//echo date('H:i:s') . " Set properties\n";
 				$objPHPExcel->getProperties()->setCreator("Maarten Balliauw");
 				$objPHPExcel->getProperties()->setLastModifiedBy("Maarten Balliauw");
 				$objPHPExcel->getProperties()->setTitle("Office 2007 XLSX Test Document");
@@ -51,7 +51,7 @@ public $message;
 
 
 				// Add some data
-				echo date('H:i:s') . " Add some data\n";
+				//echo date('H:i:s') . " Add some data\n";
 				$objPHPExcel->setActiveSheetIndex(0);
 				$objPHPExcel->getActiveSheet()->SetCellValue('A1', 'Hello');
 				$objPHPExcel->getActiveSheet()->SetCellValue('B2', 'world!');
@@ -59,17 +59,28 @@ public $message;
 				$objPHPExcel->getActiveSheet()->SetCellValue('D2', 'world!');
 
 				// Rename sheet
-				echo date('H:i:s') . " Rename sheet\n";
+				//echo date('H:i:s') . " Rename sheet\n";
 				$objPHPExcel->getActiveSheet()->setTitle('Simple');
 
 						
 				// Save Excel 2007 file
-				echo date('H:i:s') . " Write to Excel2007 format\n";
-				$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
-				$objWriter->save(str_replace('.php', '.xlsx', __FILE__));
+				//echo date('H:i:s') . " Write to Excel2007 format\n";
+				//$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+				//$objWriter->save(str_replace('.php', '.xlsx', __FILE__));
 
 				// Echo done
-				echo date('H:i:s') . " Done writing file.\r\n";
+				//echo date('H:i:s') . " Done writing file.\r\n";
+				header("Pragma: public");
+				header("Expires: 0");
+				header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+				header("Content-Type: application/force-download");
+				header("Content-Type: application/octet-stream");
+				header("Content-Type: application/download");;
+				header("Content-Disposition: attachment;filename=$filename.xls");
+				header("Content-Transfer-Encoding: binary ");
+				$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel); 
+				$objWriter->setOffice2003Compatibility(true);
+				$objWriter->save('php://output');
 	}
 	
 	
