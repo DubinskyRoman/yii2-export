@@ -8,15 +8,32 @@ use \PHPExcel_Settings;
 use \PHPExcel_Style_Fill;
 use \PHPExcel_Writer_IWriter;
 use \PHPExcel_Worksheet;
-/**
- * This is just an example.
- */
+use \PHPExcel_Writer_Excel2007;
+ 
+
+ 
+ 
+ 
+ 
 class AutoloadExample extends \yii\base\Widget
 {
+public $message;
+
+    public function init()
+    {
+        parent::init();
+        if ($this->message === null) {
+            $this->message = 'Hello World';
+        }
+    }
+
+
+
     public function run()
     {
-        return "Hello!";
-		makeExcel();
+        $this->makeExcel();
+		return "Hello!";
+		
     }
 	
 	public function makeExcel(){
