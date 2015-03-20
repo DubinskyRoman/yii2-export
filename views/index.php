@@ -8,8 +8,8 @@
   </button>
   <ul class="dropdown-menu" role="menu">
     <li><?= Html::a('HTML', [Url::base(), 'rmdExportType' => 'html']); ?></li>
-    <li><?= Html::a('PDF', [Url::base(), 'rmdExportType' => 'pdf']); ?></li>
-    <li><?= Html::a('XLS', [Url::base(), 'rmdExportType' => 'xls']); ?></li>
-    <li><?= Html::a('XLSX', [Url::base(), 'rmdExportType' => 'xlsx']); ?></li>	
+    <li><?= Html::a('PDF', [Url::base(), 'rmdExportType' => 'pdf'],['target'=>'_blank']); ?></li>
+    <!--<li><?= Html::a('XLS', [Url::base(), 'rmdExportType' => 'xls']); ?></li>
+    <li><?= Html::a('XLSX', [Url::base(), 'rmdExportType' => 'xlsx']); ?></li>-->	
   </ul>
 </div>

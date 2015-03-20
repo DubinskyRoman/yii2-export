@@ -28,4 +28,9 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \rmd\export\AutoloadExample::widget(); ?>```
+<?php 
+$rmdExportType = $request->get('rmdExportType');
+  \rmd\export\AutoloadExample::begin(["exportType"=>$rmdExportType]); ?>
+tag's 
+<?php \rmd\export\AutoloadExample::end(); ?>
+```
